@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>loader</title>
+  <style>
+    img{
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+<img id="img" src="assets/img/Spinner-3.gif" alt="">
+<iframe id="iframe" src="https://dlp-sekara.github.io/POS-System/content_index.html" frameborder="0"width="100%" height="716px"></iframe>
+
+
+<script src="assets/jquery-3.6.0.min.js"></script>
+<script>
+
+  $(function () {
+    console.log("Document Loaded");
+    $("#iframe").css('display','none')
+  });
+
+  $(window).on('load',function() {
+    console.log("Window Loaded");
+    $("#iframe").css('display','block')
+    $("#img").css('display','none')
+  });
+</script>
+</body>
+</html>
