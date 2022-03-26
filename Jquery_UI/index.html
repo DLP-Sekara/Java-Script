@@ -5,22 +5,30 @@
     <title>Jquery_UI</title>
     <link rel="stylesheet" href="assets/jquery-ui.min.css">
     <style>
-        div{
-            height: 200px;
-            width: 200px;
-            background: red;
-        }
+
     </style>
 </head>
 <body>
-<div id="div"></div>
+<div id="div">
+    <img src="assets/img/homePage.jpg" alt="">
+
+</div>
 
 <script src="assets/jquery-3.6.0.min.js"></script>
 <script src="assets/jquery-ui.min.js"></script>
+<script src="assets/oridomi.min.js"></script>
 <script>
-    $( function() {
-        $( "#div" ).draggable();
-    } );
+    var folded = new OriDomi('.paper', {
+        vPanels:          5,     // number of panels when folding left or right (vertically oriented)
+        hPanels:          3,     // number of panels when folding top or bottom
+        speed:            1200,  // folding duration in ms
+        ripple:           2,     // backwards ripple effect when animating
+        shadingIntensity: .5,    // lessen the shading effect
+        perspective:      800,   // smaller values exaggerate 3D distortion
+        maxAngle:         40,    // keep the user's folds within a range of -40 to 40 degrees
+        shading:          'soft' // change the shading type
+    });
+    folded.accordion(30);
 </script>
 </body>
 </html>
