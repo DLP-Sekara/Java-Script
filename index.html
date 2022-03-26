@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formalised Events In jQuery</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body id="body">
+
+<h1 id="header">Hello Java Script..!</h1>
+<!--<input id="txtCusID" placeholder="ID" type="text">
+<br><br>
+<input id="txtCusName" placeholder="Name" type="text">
+<br><br>
+<input id="txtCusAddress" placeholder="Address" type="text">
+<br><br>
+<input id="txtCusSalary" placeholder="Salary" type="text">
+<br><br>
+<button id="btnCustomer">Save Customer</button>
+<div>
+    <input id="sample" type="sample">
+</div>
+<br>
+<div class="box"></div>-->
+<script src="assets/JQuery/jquery-3.6.0.min.js"></script>
+<script>
+    /*
+    click(function)
+    dblclick(function)
+    focus(function)
+    blur(function)
+    keydown(function)
+    keyup(function)
+    keypress(function)
+    mousedown(function)
+    mouseup(function)
+    mousemove(function)
+    */
+
+    $("#txtCusID").keypress(function (event) {
+        if (event.key == "Enter") {
+            $("#txtCusName").focus();
+            //$("#sample").val($("#txtCusID").val());
+        }
+    });
+    $("#txtCusName").keypress(function (event) {
+        if (event.key == "Enter") {
+            $("#txtCusAddress").focus();
+            //$("#sample").val($("#txtCusID").val());
+        }
+    });
+
+    $(".box").mouseup(function () {
+        console.log("hello");
+    });
+
+    $(".box").mousedown(function () {
+        console.log("ijse");
+    });
+
+    $(".box").mousemove(function () {
+        console.log("lahiru");
+    });
+
+    $("#body").mousemove(function (e) {
+        //alert("hello");
+        $("#header").css('position', 'relative ');
+        $("#header").css('top', e.pageY);
+        $("#header").css('left', e.pageX);
+
+
+        //clearInterval(temp2);
+
+    });
+    let temp2;
+    temp2 = setInterval(run, 200);
+    let text1 = $('#header').text();
+    let count = 0;
+
+    function run() {
+        let temp = text1.substr(0, count);
+        $('#header').text(temp);
+        count++;
+
+        if (count == text1.length) {
+            count = 0;
+        }
+    }
+   var temp=[10,20,30,40]
+   $("#btnCustomer").click(function () {
+       for(var i=0;i<10;i++){
+           console.log(i)
+       }
+
+
+       var i=0;
+       while (i<=20){
+           console.log("lahiru")
+           i++;
+       }
+
+       for(var i in temp){
+           console.log(i)
+       }
+
+       for(var i of temp){
+           console.log(i)
+       }
+
+       temp.forEach(function (e) {
+               console.log(e)
+
+       })
+   })
+
+    var l=temp.find(function (e) {
+        if(e == 30){
+            console.log("lahiru"+e)
+        }else {
+            console.log("hello")
+        }
+    });
+
+
+</script>
+
+</body>
+</html>
