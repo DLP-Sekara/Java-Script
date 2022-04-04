@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+</head>
+<body id="b1">
+<h1>hello ajax</h1>
+<p id="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut beatae commodi dignissimos, dolorem esse eum expedita fuga, necessitatibus nihil omnis optio qui quis
+  quisquam quos rerum saepe sapiente suscipit tempora!</p>
+<button type="button" id="btn1">send</button>
+
+<script src="assets/js/jquery-3.6.0.min.js"></script>
+<script>
+  $("#btn1").click(function () {
+    var http=new XMLHttpRequest();
+      console.log(http.readyState,"aaa")
+    http.open("GET","db/db.txt",true);
+      console.log(http.readyState,"bbb")
+    console.log(http.responseText)
+      console.log(http.readyState,"ccc")
+    http.send();
+      console.log(http.readyState,"ddd")
+
+      http.onreadystatechange=function(){
+          if(http.status==200 & http.readyState==4) {
+              console.log(http.readyState, "Inside On Ready State Change Event"); //
+              console.log(http.responseText);
+              $("#para").text(http.responseText);
+              $("#b1").append("<p>"+http.responseText+"</p>");
+          }
+      }
+  })
+
+</script>
+</body>
+</html>

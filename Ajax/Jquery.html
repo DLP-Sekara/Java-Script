@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax with Jquery</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+</head>
+<body id="b1">
+<h1>hello ajax</h1>
+<button id="btn" style="background-color: red">send from text</button>
+<button type="button" id="btn2" style="background-color: green">send from xml</button>
+<button type="button" id="btn3" style="background-color: blue">send from json</button>
+<br>
+<br>
+<h5>xml</h5>
+<table class="table">
+    <thead style="background-color: orange">
+    <tr>
+        <th scope="col">id</th>
+        <th scope="col">name</th>
+        <th scope="col">address</th>
+        <th scope="col">salary</th>
+    </tr>
+    </thead>
+    <tbody id="tbl">
+    </tbody>
+</table>
+<br>
+<br>
+<h5>json</h5>
+<table class="table">
+    <thead style="background-color: purple">
+    <tr>
+        <th scope="col">id</th>
+        <th scope="col">name</th>
+        <th scope="col">address</th>
+        <th scope="col">salary</th>
+    </tr>
+    </thead>
+    <tbody id="tbl1">
+    </tbody>
+</table>
+
+
+
+
+
+
+<script src="assets/js/jquery-3.6.0.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script>
+
+  $("#btn").click(function () {
+   /* var http=new XMLHttpRequest();
+    console.log(http.readyState,"aaa")
+    http.open("GET","db/db.txt",true);
+    http.onreadystatechange=function(){
+      if(http.status==200 & http.readyState==4) {
+        console.log(http.readyState, "Inside On Ready State Change Event"); //
+        console.log(http.responseText);
+        $("#para").text(http.responseText);
+        $("#b1").append("<p>"+http.responseText+"</p>");
+      }
+    }
+    http.send();*/
+    $.ajax({
+      url:"db/db.txt",
+        async:false,
+      success:function(resp){
+          $("#b1").append("<p>"+resp+"</p>");
+      },
+      error:function (xhr) {
+          console.log(xhr)
+      }
+    });
+  });
+  $("#btn2").click(function () {
+        $.ajax({
+            url: "db/db.xml",
+            success:function (resp) {
+                console.log(resp)
+                let size=$(resp).children().children().length;
+                for (var i=0;i<size;i++) {
+                    let id = $(resp).children().children().eq(i).find("id").text();
+                    let name = $(resp).children().children().eq(i).find("name").text();
+                    let address = $(resp).children().children().eq(i).find("address").text();
+                    let salary = $(resp).children().children().eq(i).find("salary").text();
+                    let row1 = `<tr><td>${id}</td><td>${name}</td><td>${address}</td><td>${salary}</td></tr>`;
+                    $("#tbl").append(row1);
+                }
+                console.log(temp)
+
+            },
+            error:function (xhr) {
+                console.log(xhr)
+            }
+        })
+
+     // let row1 = `<tr><td>${customer[i].id}</td><td>${customer[i].name}</td><td>${customer[i].address}</td><td>${customer[i].contact}</td></tr>`;
+  })
+  $("#btn3").click(function () {
+        $.ajax({
+            url: "db/db.json",
+            success:function (resp) {
+                for (var i=0;i<resp.length;i++) {
+                    let id = resp[i].id;
+                    let name = resp[i].name;
+                    let address = resp[i].address;
+                    let contact = resp[i].contact;
+                    console.log(id,name,address,contact)
+                    let row1 = `<tr><td>${id}</td><td>${name}</td><td>${address}</td><td>${contact}</td></tr>`;
+                   $("#tbl1").append(row1);
+                }
+
+
+            },
+            error:function (xhr) {
+                console.log(xhr)
+            }
+        })
+  })
+</script>
+</body>
+</html>

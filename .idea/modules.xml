@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Ajax/Ajax.iml" filepath="$PROJECT_DIR$/Ajax/Ajax.iml" />
       <module fileurl="file://$PROJECT_DIR$/Assignments/Assignments.iml" filepath="$PROJECT_DIR$/Assignments/Assignments.iml" />
       <module fileurl="file://$PROJECT_DIR$/Jquery_UI/Jquery_UI.iml" filepath="$PROJECT_DIR$/Jquery_UI/Jquery_UI.iml" />
       <module fileurl="file://$PROJECT_DIR$/POS/POS.iml" filepath="$PROJECT_DIR$/POS/POS.iml" />

@@ -1,0 +1,20 @@
+<customer>
+    <customer>
+        <id>0011</id>
+        <name>kasun</name>
+        <address>colombo</address>
+        <salary>1000</salary>
+    </customer>
+    <customer>
+        <id>0022</id>
+        <name>bomal</name>
+        <address>horana</address>
+        <salary>2000</salary>
+    </customer>
+    <customer>
+        <id>0033</id>
+        <name>nuwan</name>
+        <address>padukka</address>
+        <salary>3000</salary>
+    </customer>
+</customer>
